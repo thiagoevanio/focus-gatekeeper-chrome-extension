@@ -1,8 +1,23 @@
 # Focus Gatekeeper
 
-Focus Gatekeeper is a polished Manifest V3 Chrome extension for intentional browsing. It tracks active time on distracting sites, applies user-defined limits, and covers the page with a full-screen animated pause overlay until the break timer expires.
+Focus Gatekeeper is a polished Manifest V3 Chrome extension for intentional browsing. It tracks active time on distracting sites, applies user-defined limits, and covers the page with a compact animated pause overlay until the break timer expires.
 
-![Focus Gatekeeper screenshot](store/screenshots/screenshot-1-dashboard.png)
+## Screenshots
+
+<table>
+  <tr>
+    <td><img src="store/screenshots/1.jpeg" alt="Focus Gatekeeper screenshot 1"></td>
+    <td><img src="store/screenshots/2.jpeg" alt="Focus Gatekeeper screenshot 2"></td>
+  </tr>
+  <tr>
+    <td><img src="store/screenshots/3.jpeg" alt="Focus Gatekeeper screenshot 3"></td>
+    <td><img src="store/screenshots/4.jpeg" alt="Focus Gatekeeper screenshot 4"></td>
+  </tr>
+  <tr>
+    <td><img src="store/screenshots/5.jpeg" alt="Focus Gatekeeper screenshot 5"></td>
+    <td><img src="store/screenshots/6.jpeg" alt="Focus Gatekeeper screenshot 6"></td>
+  </tr>
+</table>
 
 ## Highlights
 
@@ -60,7 +75,7 @@ The `store/` directory includes:
 - Privacy policy
 - Screenshot notes and generated preview assets
 
-For a real store submission, replace generated preview images with actual screenshots captured from Chrome after final QA.
+For a real store submission, use the real screenshots in `store/screenshots/` and capture any additional Chrome Web Store sizes required during final submission.
 
 ## Portfolio Demo
 
@@ -68,8 +83,10 @@ Use `docs/DEMO_SCRIPT.md` to record a short video showing:
 
 1. Adding a site.
 2. Setting a one-minute limit.
-3. Triggering the overlay.
-4. Waiting for the page to unlock.
+3. Showing the pre-block warning.
+4. Triggering the overlay.
+5. Switching between light and dark theme.
+6. Waiting for the page to unlock.
 
 ## Privacy
 
