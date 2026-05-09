@@ -1,0 +1,49 @@
+{
+  "manifest_version": 3,
+  "name": "Focus Gatekeeper",
+  "short_name": "Gatekeeper",
+  "version": "1.2.0",
+  "description": "Track distracting websites, enforce focus limits, and unlock pages after intentional pause timers.",
+  "minimum_chrome_version": "114",
+  "permissions": [
+    "alarms",
+    "storage",
+    "tabs"
+  ],
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  "background": {
+    "service_worker": "src/background.js",
+    "type": "module"
+  },
+  "action": {
+    "default_icon": {
+      "16": "assets/icon-16.png",
+      "32": "assets/icon-32.png"
+    },
+    "default_popup": "src/popup.html",
+    "default_title": "Focus Gatekeeper"
+  },
+  "icons": {
+    "16": "assets/icon-16.png",
+    "32": "assets/icon-32.png",
+    "48": "assets/icon-48.png",
+    "128": "assets/icon-128.png"
+  },
+  "options_page": "src/options.html",
+  "content_scripts": [
+    {
+      "matches": [
+        "<all_urls>"
+      ],
+      "css": [
+        "src/overlay.css"
+      ],
+      "js": [
+        "src/content.js"
+      ],
+      "run_at": "document_idle"
+    }
+  ]
+}

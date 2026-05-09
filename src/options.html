@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Focus Gatekeeper Options</title>
+    <link rel="stylesheet" href="options.css">
+  </head>
+  <body>
+    <main class="options-shell">
+      <header class="page-header">
+        <p class="eyebrow">Focus Gatekeeper</p>
+        <h1 data-i18n="extensionSettings">Extension settings</h1>
+      </header>
+
+      <section class="stats-grid" aria-live="polite">
+        <div class="stat-card">
+          <span class="label" data-i18n="todayFocus">Today focus</span>
+          <strong id="todayFocus">--</strong>
+        </div>
+        <div class="stat-card">
+          <span class="label" data-i18n="weekFocus">Week focus</span>
+          <strong id="weekFocus">--</strong>
+        </div>
+        <div class="stat-card">
+          <span class="label" data-i18n="totalSaved">Total saved</span>
+          <strong id="totalSaved">--</strong>
+        </div>
+        <div class="stat-card">
+          <span class="label" data-i18n="breaksStarted">Breaks started</span>
+          <strong id="breaksStarted">--</strong>
+        </div>
+        <div class="stat-card weekly-chart-card">
+          <span class="label" data-i18n="lastSevenDays">Last 7 days</span>
+          <div id="weeklyChart" class="weekly-chart"></div>
+        </div>
+      </section>
+
+      <form id="settingsForm" class="settings-grid">
+        <section class="panel">
+          <h2 data-i18n="tracking">Tracking</h2>
+          <label>
+            <span data-i18n="language">Language</span>
+            <select id="language">
+              <option value="en">English</option>
+              <option value="pt-BR">Português (Brasil)</option>
+            </select>
+          </label>
+          <label>
+            <span data-i18n="theme">Theme</span>
+            <select id="theme">
+              <option value="light" data-i18n="themeLight">Light</option>
+              <option value="dark" data-i18n="themeDark">Dark</option>
+            </select>
+          </label>
+          <label class="toggle-row">
+            <span data-i18n="enableTracking">Enable tracking</span>
+            <input id="enabled" type="checkbox">
+          </label>
+          <label class="toggle-row">
+            <span data-i18n="warningEnabled">Pre-block warning</span>
+            <input id="warningEnabled" type="checkbox">
+          </label>
+          <label>
+            <span data-i18n="warningSeconds">Warn seconds before</span>
+            <input id="warningSeconds" type="number" min="10" max="600" step="5">
+          </label>
+          <label>
+            <span data-i18n="defaultFocusLimit">Default focus limit</span>
+            <input id="defaultFocusLimitMinutes" type="number" min="1" max="480" step="1">
+          </label>
+          <label>
+            <span data-i18n="defaultForcedBreak">Default forced break</span>
+            <input id="defaultBreakMinutes" type="number" min="1" max="180" step="1">
+          </label>
+          <label>
+            <span data-i18n="shortBreak">Short break</span>
+            <input id="shortBreakMinutes" type="number" min="1" max="180" step="1">
+          </label>
+          <label>
+            <span data-i18n="longBreak">Long break</span>
+            <input id="longBreakMinutes" type="number" min="1" max="480" step="1">
+          </label>
+        </section>
+
+        <section class="panel">
+          <h2 data-i18n="overlayCopy">Overlay copy</h2>
+          <label>
+            <span data-i18n="title">Title</span>
+            <input id="overlayTitle" type="text" maxlength="80">
+          </label>
+          <label>
+            <span data-i18n="message">Message</span>
+            <textarea id="overlayMessage" rows="4" maxlength="220"></textarea>
+          </label>
+        </section>
+
+        <section class="panel full">
+          <div class="panel-heading">
+            <div>
+              <h2 data-i18n="trackedSites">Tracked sites</h2>
+              <p data-i18n="trackedSitesHelp">Each site can have its own focus limit and break timer.</p>
+            </div>
+          </div>
+          <div id="sitesList" class="sites-list"></div>
+        </section>
+
+        <div class="actions full">
+          <button type="submit" data-i18n="saveAllChanges">Save all changes</button>
+          <button id="resetUsage" type="button" class="secondary" data-i18n="resetUsage">Reset usage</button>
+          <button id="exportData" type="button" class="secondary" data-i18n="export">Export</button>
+          <label class="import-button">
+            <span data-i18n="import">Import</span>
+            <input id="importFile" type="file" accept=".json,application/json">
+          </label>
+          <span id="statusMessage" role="status"></span>
+        </div>
+      </form>
+
+      <section class="panel full add-site-panel">
+        <h2 data-i18n="addSite">Add a site</h2>
+        <form id="addSiteForm" class="add-site-form">
+          <label>
+            <span data-i18n="domain">Domain</span>
+            <input id="newDomain" type="text" placeholder="example.com" autocomplete="off" spellcheck="false">
+          </label>
+          <label>
+            <span data-i18n="label">Label</span>
+            <input id="newLabel" type="text" placeholder="Example">
+          </label>
+          <label>
+            <span data-i18n="focus">Focus</span>
+            <input id="newLimitMinutes" type="number" min="1" max="480" step="1" value="25">
+          </label>
+          <label>
+            <span data-i18n="break">Break</span>
+            <input id="newBreakMinutes" type="number" min="1" max="180" step="1" value="5">
+          </label>
+          <label>
+            <span data-i18n="pauseMode">Pause mode</span>
+            <select id="newPauseMode">
+              <option value="timer" data-i18n="modeTimer">Site timer</option>
+              <option value="short" data-i18n="modeShort">Short break</option>
+              <option value="long" data-i18n="modeLong">Long break</option>
+              <option value="tomorrow" data-i18n="modeTomorrow">Until tomorrow</option>
+            </select>
+          </label>
+          <button type="submit" data-i18n="addSiteButton">Add site</button>
+        </form>
+      </section>
+
+      <section class="panel full">
+        <h2 data-i18n="recentActivity">Recent activity</h2>
+        <div id="historyList" class="history-list"></div>
+      </section>
+    </main>
+    <script src="options.js"></script>
+  </body>
+</html>

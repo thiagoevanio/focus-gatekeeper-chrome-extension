@@ -1,0 +1,148 @@
+:root {
+  color-scheme: light;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  color: #111827;
+  background: #f8fafc;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  background:
+    radial-gradient(circle at 16% 18%, rgba(20, 184, 166, 0.18), transparent 28%),
+    radial-gradient(circle at 84% 16%, rgba(250, 204, 21, 0.18), transparent 24%),
+    #f8fafc;
+}
+
+.onboarding-shell {
+  width: min(1120px, calc(100% - 32px));
+  margin: 0 auto;
+  padding: 56px 0;
+}
+
+.hero {
+  display: grid;
+  justify-items: start;
+  gap: 18px;
+  padding: 48px;
+  border: 2px solid #111827;
+  border-radius: 8px;
+  background: #ffffff;
+  box-shadow: 12px 12px 0 rgba(20, 184, 166, 0.18);
+}
+
+.brand-mark {
+  width: 78px;
+  height: 88px;
+  display: grid;
+  place-items: center;
+  border: 3px solid #111827;
+  border-radius: 28px 28px 36px 36px;
+  background: linear-gradient(160deg, #14b8a6, #facc15);
+  clip-path: polygon(50% 0, 94% 18%, 86% 72%, 50% 100%, 14% 72%, 6% 18%);
+}
+
+.brand-mark span {
+  width: 34px;
+  height: 34px;
+  border: 5px solid #ffffff;
+  border-radius: 50%;
+  box-shadow: inset 0 0 0 8px rgba(17, 24, 39, 0.16);
+}
+
+.eyebrow {
+  margin: 0;
+  color: #047857;
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+h1 {
+  max-width: 760px;
+  margin: 0;
+  font-size: clamp(44px, 8vw, 82px);
+  line-height: 0.95;
+  letter-spacing: 0;
+}
+
+.lede {
+  max-width: 680px;
+  margin: 0;
+  color: #475569;
+  font-size: 20px;
+  line-height: 1.5;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+button {
+  min-height: 46px;
+  padding: 0 18px;
+  border: 2px solid #111827;
+  border-radius: 8px;
+  background: #0f766e;
+  color: #ffffff;
+  cursor: pointer;
+  font: inherit;
+  font-weight: 900;
+}
+
+button.secondary {
+  background: #ffffff;
+  color: #111827;
+}
+
+.steps {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  margin-top: 18px;
+}
+
+.steps article {
+  min-height: 220px;
+  padding: 22px;
+  border: 2px solid #111827;
+  border-radius: 8px;
+  background: #ffffff;
+}
+
+.steps strong {
+  display: grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  border: 2px solid #111827;
+  border-radius: 50%;
+  background: #facc15;
+}
+
+.steps h2 {
+  margin: 18px 0 8px;
+}
+
+.steps p {
+  margin: 0;
+  color: #475569;
+  line-height: 1.5;
+}
+
+@media (max-width: 760px) {
+  .hero {
+    padding: 28px;
+  }
+
+  .steps {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Focus Gatekeeper</title>
+    <link rel="stylesheet" href="popup.css">
+  </head>
+  <body>
+    <main class="popup-shell">
+      <header class="popup-header">
+        <div>
+          <p class="eyebrow">Focus Gatekeeper</p>
+          <h1 data-i18n="today">Today</h1>
+        </div>
+        <label class="switch" title="Enable or disable tracking" data-i18n-title="trackingToggleTitle">
+          <input id="enabled" type="checkbox" aria-label="Enable tracking">
+          <span></span>
+        </label>
+      </header>
+
+      <section class="current-site" id="currentSiteCard">
+        <span class="label" data-i18n="currentSite">Current site</span>
+        <strong id="currentSite">Loading...</strong>
+        <button id="trackCurrentSite" type="button" data-i18n="trackThisSite">Track this site</button>
+      </section>
+
+      <section class="usage-summary" aria-live="polite">
+        <div>
+          <span class="label" data-i18n="trackedUsage">Tracked usage</span>
+          <strong id="usageTotal">--</strong>
+        </div>
+        <div>
+          <span class="label" data-i18n="weekUsage">Week usage</span>
+          <strong id="weekUsage">--</strong>
+        </div>
+        <div>
+          <span class="label" data-i18n="timeSaved">Time saved</span>
+          <strong id="timeSaved">--</strong>
+        </div>
+        <div>
+          <span class="label" data-i18n="activeBreak">Active break</span>
+          <strong id="activeBreak">None</strong>
+        </div>
+      </section>
+
+      <form id="settingsForm" class="settings-form">
+        <label>
+          <span data-i18n="defaultFocus">Default focus</span>
+          <input id="defaultFocusLimitMinutes" type="number" min="1" max="480" step="1">
+        </label>
+
+        <label>
+          <span data-i18n="defaultBreak">Default break</span>
+          <input id="defaultBreakMinutes" type="number" min="1" max="180" step="1">
+        </label>
+
+        <button type="submit" data-i18n="saveDefaults">Save defaults</button>
+      </form>
+
+      <section class="site-list-section">
+        <div class="section-title">
+          <span class="label" data-i18n="trackedSites">Tracked sites</span>
+          <button id="openOptions" class="link-button" type="button" data-i18n="manage">Manage</button>
+        </div>
+        <div id="siteList" class="site-list"></div>
+      </section>
+
+      <p id="statusMessage" class="status-message" role="status"></p>
+    </main>
+    <script src="popup.js"></script>
+  </body>
+</html>
